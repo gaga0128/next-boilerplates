@@ -12,11 +12,7 @@ import { IAction, IHomePage } from '@Interfaces';
 /**
  * INITIAL_STATE
 */
-const INITIAL_STATE: IHomePage.IStateProps = {
-	home: {
-		version: 1
-	}
-};
+const INITIAL_STATE: IHomePage.IStateProps = { };
 
 type IMapPayload = IHomePage.Actions.IMapPayload;
 
