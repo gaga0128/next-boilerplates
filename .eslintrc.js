@@ -29,7 +29,6 @@ module.exports = {
 		'@typescript-eslint/no-require-imports': 'off',
 		'@typescript-eslint/no-object-literal-type-assertion': 'off',
 		'@typescript-eslint/prefer-interface': 'off',
-		'@typescript-eslint/no-var-requires': 'off',
 		// Enabled rules
 		'@typescript-eslint/adjacent-overload-signatures': 'error',
 		'@typescript-eslint/array-type': 'error',
@@ -45,6 +44,7 @@ module.exports = {
 		'@typescript-eslint/no-misused-new': 'error',
 		'@typescript-eslint/no-for-in-array': 'error',
 		'@typescript-eslint/no-angle-bracket-type-assertion': 'error',
+		'@typescript-eslint/no-var-requires': 'error',
 		'@typescript-eslint/prefer-function-type': 'error',
 		'@typescript-eslint/promise-function-async': 'error',
 		'@typescript-eslint/restrict-plus-operands': 'error',
