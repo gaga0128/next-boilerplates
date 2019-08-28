@@ -1,6 +1,5 @@
 //#region Global Imports
 import { Props } from 'prop-types';
-import i18n from 'i18next';
 //#endregion Global Imports
 
 //#region Interfaces Imports
@@ -10,10 +9,7 @@ import { PlanetaryModel } from '@Interfaces';
 declare namespace IHomePage {
 	export type IProps = IOwnProps & IStateProps & IDispatchProps;
 
-	export interface IOwnProps extends Props<{}> {
-		t: i18n.TranslationFunction;
-		i18n: i18n.i18n;
-	}
+	export interface IOwnProps extends Props<{}> {}
 
 	export interface IState {}
 
