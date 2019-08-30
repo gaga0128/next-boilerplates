@@ -12,8 +12,7 @@
 			"routing",
 			"unit-test",
 			"reverse-proxy",
-			"dotenv-usage",
-			"i18next"
+			"dotenv-usage"
 		],
 		"Project CLI": [
 			"cli-overview",

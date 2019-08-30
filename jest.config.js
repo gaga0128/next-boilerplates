@@ -8,7 +8,7 @@ module.exports = {
 			diagnostics: false,
 		},
 	},
-	coveragePathIgnorePatterns: ['/node_modules/', 'enzyme.js', 'app/i18n'],
+	coveragePathIgnorePatterns: ['/node_modules/', 'enzyme.js'],
 	setupFiles: ['<rootDir>/jest.setup.ts'],
 	coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
 	moduleNameMapper: {
