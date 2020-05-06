@@ -1,6 +1,5 @@
 module.exports = {
     moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
-    testMatch: ["**/*.(test|spec).(ts|tsx)"],
     globals: {
         "ts-jest": {
             tsConfig: "tsconfig.jest.json",
@@ -20,4 +19,5 @@ module.exports = {
         "^@([A-Z].*)$": "<rootDir>/src/$1",
     },
     preset: "ts-jest",
+    snapshotSerializers: ["enzyme-to-json/serializer"],
 };

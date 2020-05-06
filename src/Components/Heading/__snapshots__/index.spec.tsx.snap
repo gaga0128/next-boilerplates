@@ -1,20 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components Heading should match snapshot 1`] = `
-<div>
+<Heading
+  text="Test"
+>
   <div
-    class="title"
+    className="title"
   >
     <span
-      class="title__back"
+      className="title__back"
     >
       Test
     </span>
     <span
-      class="title__front"
+      className="title__front"
     >
       Test
     </span>
   </div>
-</div>
+</Heading>
 `;

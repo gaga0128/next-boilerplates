@@ -1,18 +1,17 @@
 import * as React from "react";
 
-import { render } from "@Test/utils";
+import { mountWithTheme, shallowWithTheme } from "@Test/Helpers/styled";
 import { Navbar } from "@Components";
 
 describe("Navbar", () => {
     it("should render without fail", () => {
-        const { getByText } = render(<Navbar />);
+        const wrapper = shallowWithTheme(<Navbar />);
 
-        expect(getByText("Navbar")).toBeTruthy();
+        expect(wrapper.find("div.navbar").exists()).toBe(true);
     });
 
     it("should match snapshot", () => {
-        const { container } = render(<Navbar />);
-
-        expect(container).toMatchSnapshot();
+        const wrapper = mountWithTheme(<Navbar />);
+        expect(wrapper).toMatchSnapshot();
     });
 });

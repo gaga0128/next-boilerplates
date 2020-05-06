@@ -1,9 +1,10 @@
 // #region Global Imports
-import * as React from "react";
+import React from "react";
+import { shallow } from "enzyme";
 // #endregion Global Imports
 
 // #region Local Imports
-import { render, fireEvent } from "@Test/utils";
+import { mountWithTheme, shallowWithTheme } from "@Test/Helpers/styled";
 import { theme } from "@Definitions/Styled/theme";
 import { Button } from "./index";
 // #endregion Local Imports
@@ -11,64 +12,51 @@ import { Button } from "./index";
 describe("Basic Components", () => {
     describe("Button", () => {
         it("should have the passed class", () => {
-            const { container } = render(<Button className="active" />);
+            const wrapper = shallowWithTheme(<Button className="active" />);
 
-            expect(container.firstChild).toHaveClass("active");
+            expect(wrapper.hasClass("active")).toBe(true);
         });
 
         it("should render with children prop", () => {
-            const { getByText } = render(<Button>hey</Button>);
+            const wrapper = shallow(<Button>hey</Button>);
 
-            expect(getByText("hey")).toBeTruthy();
+            expect(wrapper.props().children).toBe("hey");
         });
 
         it("should increment number on click", () => {
             let number = 1;
-            const { getByText } = render(
+            const wrapper = shallowWithTheme(
                 <Button
                     onClick={() => {
                         number += 1;
                     }}
-                >
-                    Button
-                </Button>
+                />
             );
 
-            fireEvent.click(getByText("Button"), new MouseEvent("click"));
-
+            wrapper.simulate("click");
             expect(number).toBe(2);
         });
 
         it("should match snapshot", () => {
-            const { container } = render(<Button>Test</Button>);
-
-            expect(container).toMatchSnapshot();
+            const wrapper = mountWithTheme(<Button>Test</Button>);
+            expect(wrapper).toMatchSnapshot();
         });
 
         it("should be disabled", () => {
-            const { container } = render(<Button disabled>Test</Button>);
-
-            expect(container.firstChild).toHaveStyleRule(
-                "cursor",
-                "not-allowed"
-            );
+            const wrapper = mountWithTheme(<Button disabled>Test</Button>);
+            expect(wrapper).toHaveStyleRule("cursor", "not-allowed");
         });
 
         it("should be enabled", () => {
-            const { container } = render(
+            const wrapper = mountWithTheme(
                 <Button disabled={false}>Test</Button>
             );
-
-            expect(container.firstChild).toHaveStyleRule("cursor", "pointer");
+            expect(wrapper).toHaveStyleRule("cursor", "pointer");
         });
 
         it("should have primary color", () => {
-            const { container } = render(<Button>Test</Button>);
-
-            expect(container.firstChild).toHaveStyleRule(
-                "color",
-                theme.colors.primary
-            );
+            const wrapper = mountWithTheme(<Button>Test</Button>);
+            expect(wrapper).toHaveStyleRule("color", theme.colors.primary);
         });
     });
 });
